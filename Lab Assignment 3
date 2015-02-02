@@ -1,0 +1,81 @@
+#include <iostream>
+#include <cmath> 
+#include <cassert>
+using namespace std;
+
+class aLaRusse//will multiply a La Russe, then take the square root of the product
+{
+public:
+ aLaRusse(int x, int y);//sets x and y equal to inputs
+ void multiply();//performs a La Russe algorithm
+ void Sqrt();//takes square root of product
+ int getFac1(){return fac1;}
+ int getFac2(){return fac2;}
+ int getProduct(){return product;}
+ double getSqrt(){return sq;}
+ double sqrt(){return sq;}   
+private:
+ int fac1;
+ int fac2;
+ int product;
+ double sq;
+};
+
+aLaRusse::aLaRusse(int x, int y)
+{
+ fac1=x;
+ fac2=y;
+ product=0;
+ sq=0;
+}
+
+void aLaRusse::multiply()
+{
+ //checks that both factors are positive
+ assert(fac1>=0 && fac2>=0);
+ int expectedResult=fac1*fac2;
+ if(fac1==0 || fac2==0)
+  product=0;
+ while(fac1>=1)
+  {
+   if(fac1%2==1)//if fac1 is odd, fac2 is added to the product total
+    product+=fac2;
+   fac1/=2;
+   fac2+=fac2;
+  }
+ assert(product==expectedResult);
+ 
+}
+
+void aLaRusse::Sqrt()
+{
+ //will not calculate the sqrt of a negative number
+ assert( product >= 0 );
+ if (product==0)
+  sq==0;
+ //will calculate the square root of the product
+ double xhi = product;
+ double xlo = 0;
+ double guess = product/2;
+
+ //check if product is less than one
+
+ if(product<1)
+  {
+   xhi=1;
+   xlo=product;
+  }
+
+ //stop when guess*guess-product is very small 
+
+ while (abs(guess*guess-product) > 0.00001 )
+   {
+     if (guess*guess > product)
+	xhi = guess;
+     else
+	 xlo = guess;
+     guess = (xhi + xlo)/2;
+   }
+
+ sq=guess;
+}
