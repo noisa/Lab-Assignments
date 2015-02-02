@@ -1,0 +1,16 @@
+[004628129@jb358-28 labs]$ g++ lab3.cpp
+[004628129@jb358-28 labs]$ ./a.out lab3.cpp
+This program will multiply two positive integers using the A La Russe method.
+Please enter two positive integers that you would like to find the product and square root of: 6 0
+The product of those two numbers is: 0
+The square root of the product is: 0
+[004628129@jb358-28 labs]$ ./a.out lab3.cpp
+This program will multiply two positive integers using the A La Russe method.
+Please enter two positive integers that you would like to find the product and square root of: 6 6
+The product of those two numbers is: 36
+The square root of the product is: 6
+[004628129@jb358-28 labs]$ ./a.out lab3.cpp
+This program will multiply two positive integers using the A La Russe method.
+Please enter two positive integers that you would like to find the product and square root of: 6 -7
+a.out: lab3.h:35: void aLaRusse::multiply(): Assertion `fac1>=0 && fac2>=0' failed.
+Aborted
